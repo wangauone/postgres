@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/gemini-cli-extensions/postgres/compare/0.2.2...0.2.3) (2026-08-06)
+
+
+### Bug Fixes
+
+* treat database tool output as untrusted data in model context ([#102](https://github.com/gemini-cli-extensions/postgres/issues/102)) ([a98397a](https://github.com/gemini-cli-extensions/postgres/commit/a98397ad5a55fbd51cceb18f69f3b7ffbe42ce4d))
+
 ## [0.2.2](https://github.com/gemini-cli-extensions/postgres/compare/0.2.1...0.2.2) (2026-02-24)
 
 
