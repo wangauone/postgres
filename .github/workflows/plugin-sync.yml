@@ -1,0 +1,16 @@
+name: Plugin sync
+
+on:
+  pull_request:
+    paths:
+      - plugin.json
+      - mcp.json
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    uses: wangauone/agent-plugin-sync/.github/workflows/sync.yml@main
+    with:
+      self_heal: true

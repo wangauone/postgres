@@ -1,11 +1,13 @@
 {
   "name": "postgres",
   "version": "0.2.2",
-  "description": "Connect and interact with a PostgreSQL database and data",
+  "description": "Connect and interact with a PostgreSQL database and data.",
   "mcpServers": {
     "postgresql": {
-      "command": "${extensionPath}${/}toolbox",
+      "command": "npx",
       "args": [
+        "-y",
+        "@toolbox-sdk/server@1.8.0",
         "--prebuilt",
         "postgres",
         "--stdio"
@@ -41,7 +43,7 @@
     },
     {
       "name": "Query Params",
-      "description": "(Optional) Connection String Parameters",
+      "description": "(Optional) Connection string parameters",
       "envVar": "POSTGRES_QUERY_PARAMS"
     }
   ]

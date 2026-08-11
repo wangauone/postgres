@@ -1,0 +1,73 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "postgres",
+  "version": "0.2.2",
+  "description": "Connect and interact with a PostgreSQL database and data.",
+  "author": {
+    "name": "Google LLC",
+    "email": "data-cloud-ai-integrations@google.com"
+  },
+  "homepage": "https://www.postgresql.org/docs/",
+  "repository": "https://github.com/gemini-cli-extensions/postgres",
+  "license": "Apache-2.0",
+  "keywords": [
+    "postgres",
+    "postgresql",
+    "database"
+  ],
+  "extensions": {
+    "com.google.cloud": {
+      "comment": "Google-owned namespace. Single source of truth used to generate the harness-specific manifests (gemini-extension.json, .claude-plugin, .codex-plugin, Antigravity). Clients that do not implement this namespace MUST ignore it (spec 8.1).",
+      "config": [
+        {
+          "key": "POSTGRES_HOST",
+          "title": "Host",
+          "description": "Host or IP address of the PostgreSQL server",
+          "required": false,
+          "default": "localhost",
+          "sensitive": false
+        },
+        {
+          "key": "POSTGRES_PORT",
+          "title": "Port",
+          "description": "Port number of the PostgreSQL server",
+          "required": false,
+          "default": "5432",
+          "sensitive": false
+        },
+        {
+          "key": "POSTGRES_DATABASE",
+          "title": "Database",
+          "description": "Name of the database",
+          "required": true,
+          "sensitive": false
+        },
+        {
+          "key": "POSTGRES_USER",
+          "title": "User",
+          "description": "Username of the database user",
+          "required": true,
+          "sensitive": false
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "title": "Password",
+          "description": "Password of the database user",
+          "required": true,
+          "sensitive": true
+        },
+        {
+          "key": "POSTGRES_QUERY_PARAMS",
+          "title": "Query Params",
+          "description": "(Optional) Connection string parameters",
+          "required": false,
+          "sensitive": false
+        }
+      ],
+      "gemini": {
+        "contextFileName": "POSTGRESQL.md",
+        "mcpServerName": "postgresql"
+      }
+    }
+  }
+}

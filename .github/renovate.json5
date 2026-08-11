@@ -21,18 +21,22 @@
       pinDigests: true,
     },
     {
-      matchPackageNames: ['googleapis/mcp-toolbox'],
-      'semanticCommitType': 'feat'
-    }
+      // Label Toolbox runner bumps as `feat`. This rule only adds the commit
+      // type; the datasource is set by the customManager below.
+      matchPackageNames: ['@toolbox-sdk/server'],
+      matchDatasources: ['npm'],
+      semanticCommitType: 'feat',
+    },
   ],
   customManagers: [
     {
-      customType: "regex",
-      managerFilePatterns: ["/toolbox_version\\.txt$/"],
-      matchStrings: ["(?<currentValue>[\\d\\.]+)"],
-      datasourceTemplate: "github-releases",
-      packageNameTemplate: "googleapis/mcp-toolbox",
-      extractVersionTemplate: "^v(?<version>.*)$",
-    }
-  ]
+      // Bump the MCP Toolbox runner pinned in mcp.json, checked against npm.
+      customType: 'regex',
+      managerFilePatterns: ['/(^|/)mcp\\.json$/'],
+      matchStrings: [
+        '"(?<depName>@toolbox-sdk/server)@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"',
+      ],
+      datasourceTemplate: 'npm',
+    },
+  ],
 }

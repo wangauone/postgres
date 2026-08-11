@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/wangauone/agent-plugin-sync
+    rev: main
+    hooks:
+      - id: agent-plugin-sync
