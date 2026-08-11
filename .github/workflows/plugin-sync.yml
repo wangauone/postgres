@@ -13,4 +13,4 @@ jobs:
   sync:
     uses: wangauone/agent-plugin-sync/.github/workflows/sync.yml@main
     with:
-      self_heal: true
+      auto_sync: true
