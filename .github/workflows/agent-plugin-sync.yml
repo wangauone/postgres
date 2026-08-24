@@ -1,0 +1,22 @@
+# Keeps the generated harness manifests in step with the source of truth
+# (plugin.json + mcp.json).
+#
+# Two things trigger a regeneration, and both arrive as a Renovate PR:
+#   - a new MCP server version: Renovate bumps mcp.json, this job regenerates
+#     the derived manifests and commits them onto the same PR;
+#   - a new agent-plugin-sync release: Renovate bumps the tag on `uses:` below,
+#     and the job re-runs the newer generator over the unchanged source.
+#
+# The tag on `uses:` selects both the workflow and the generator version.
+name: agent-plugin-sync
+
+on:
+  pull_request:
+
+jobs:
+  sync:
+    uses: wangauone/agent-plugin-sync/.github/workflows/sync.yml@0.1.2
+    with:
+      auto_sync: true
+    permissions:
+      contents: write
