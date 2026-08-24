@@ -15,7 +15,7 @@ on:
 
 jobs:
   sync:
-    uses: wangauone/agent-plugin-sync/.github/workflows/sync.yml@0.1.2
+    uses: wangauone/agent-plugin-sync/.github/workflows/sync.yml@0.1.3
     with:
       auto_sync: true
     permissions:
